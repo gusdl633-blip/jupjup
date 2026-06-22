@@ -1,28 +1,38 @@
-# 문장줍기 MVP
+# 줍줍 MVP
 
-Pinterest 글귀 이미지를 수집해 OCR로 텍스트화하고, 랜덤으로 보여주는 앱 뼈대입니다.
+Pinterest 글귀 이미지를 텍스트가 아니라 **이미지 원본 그대로 랜덤 노출**하는 정적 프론트 뼈대입니다.
 
-## 지금 포함된 것
-- 랜딩/홈 화면
+## 포함된 기능
+
 - Pinterest URL 입력 UI
-- 랜덤 문장 보기
+- 랜덤 이미지 보기
+- Pinterest 스타일 masonry 이미지 피드
+- 이미지 확대 모달
+- OCR 텍스트 접기/펼치기 영역
 - 카테고리 필터
-- 수집 문장 masonry 스타일 리스트
-- 정적 배포 가능 파일
+- 정적 배포 가능
 
-## 배포 방법
-Netlify, Vercel, Cloudflare Pages에 이 폴더를 그대로 업로드하면 됩니다.
+## 배포
 
-## 실제 수집 기능 연결 구조
-프론트에서 `/api/collect`로 URL을 보내고, 서버에서 아래 순서로 처리합니다.
+Vercel / Netlify / Cloudflare Pages에 그대로 업로드하면 됩니다.
 
-1. Playwright로 Pinterest URL 접속
-2. 자동 스크롤
-3. img src 수집
-4. 이미지 OCR
-5. OpenAI API로 카테고리 분류
-6. Supabase 저장
-7. 프론트에서 랜덤 노출
+- Framework Preset: Other
+- Root Directory: ./
+- Build Command: 비움
+- Output Directory: 비움
 
-## 주의
-Pinterest 이미지 대량 수집/재배포는 저작권 및 약관 이슈가 있을 수 있습니다. 개인 보관/텍스트 추출 중심으로 설계하는 편이 안전합니다.
+## 실제 수집 연결
+
+`server-collect-example.js`를 서버 API로 분리해서 연결하세요.
+프론트에서는 `/api/collect?url=...` 형태로 호출하면 됩니다.
+
+저장 DB 권장 구조:
+
+```sql
+id
+image_url
+ocr_text
+category
+source_url
+created_at
+```
