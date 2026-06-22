@@ -1,0 +1,59 @@
+:root {
+  --bg: #f6f1ec;
+  --card: #fffaf6;
+  --text: #25211e;
+  --muted: #766b62;
+  --line: #e4d8cf;
+  --accent: #8b5e4a;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+.app { max-width: 1080px; margin: 0 auto; padding: 40px 20px 80px; }
+.hero { padding: 40px 0 24px; }
+.eyebrow { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+h1 { margin: 8px 0; font-size: clamp(42px, 8vw, 84px); letter-spacing: -0.06em; }
+.desc { max-width: 560px; color: var(--muted); font-size: 18px; line-height: 1.6; }
+.panel, .random-card {
+  background: rgba(255,250,246,.9);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 24px;
+  margin-top: 20px;
+  box-shadow: 0 14px 40px rgba(50,35,25,.07);
+}
+h2 { margin: 0 0 16px; font-size: 22px; }
+.input-row { display: flex; gap: 10px; }
+input, select {
+  width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 15px 16px;
+  background: #fff; color: var(--text); font-size: 15px;
+}
+button {
+  border: 0; border-radius: 14px; padding: 15px 20px; background: var(--text); color: white;
+  font-weight: 700; white-space: nowrap; cursor: pointer;
+}
+.notice { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
+.random-card { min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+.random-card span { align-self: flex-start; background: #eee1d7; color: var(--accent); padding: 8px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; }
+.random-card p { font-size: clamp(26px, 4vw, 48px); line-height: 1.35; letter-spacing: -0.04em; margin: 28px 0; }
+.random-card button { align-self: flex-start; }
+.section-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.section-head select { max-width: 160px; }
+.grid { column-count: 3; column-gap: 16px; }
+.quote-item {
+  display: inline-block; width: 100%; break-inside: avoid; margin: 0 0 16px; padding: 20px;
+  border-radius: 22px; background: #fff; border: 1px solid var(--line);
+}
+.quote-item img { width: 100%; border-radius: 16px; margin-bottom: 14px; background: #eee; }
+.quote-item p { margin: 0; line-height: 1.65; }
+.quote-item small { display: block; margin-top: 14px; color: var(--accent); font-weight: 700; }
+@media (max-width: 760px) {
+  .input-row { flex-direction: column; }
+  .grid { column-count: 1; }
+  .panel, .random-card { border-radius: 22px; padding: 20px; }
+}

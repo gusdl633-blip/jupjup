@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>문장줍기 MVP</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">Pinterest Quote Collector</p>
+      <h1>문장줍기</h1>
+      <p class="desc">Pinterest 링크를 넣고, 이미지 속 글귀를 수집·분류해서 랜덤으로 보는 앱 뼈대입니다.</p>
+    </header>
+
+    <section class="panel collector">
+      <h2>수집 시작</h2>
+      <div class="input-row">
+        <input id="pinUrl" type="url" placeholder="https://kr.pinterest.com/pin/721772277803769239/" />
+        <button id="collectBtn">수집하기</button>
+      </div>
+      <p class="notice">현재 프론트 뼈대 버전입니다. 실제 Pinterest 수집은 서버의 Playwright API에 연결해야 합니다.</p>
+    </section>
+
+    <section class="random-card" id="randomCard">
+      <span id="quoteCategory">인생</span>
+      <p id="quoteText">괜찮, 봄 보리밭도 출렁이라고 말하는 것보다는 거칠게, 내가 그런 것도 됐다고 말하는 편이 낫다.</p>
+      <button id="randomBtn">랜덤 문장 보기</button>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>수집된 문장</h2>
+        <select id="filter">
+          <option value="all">전체</option>
+          <option value="위로">위로</option>
+          <option value="관계">관계</option>
+          <option value="철학">철학</option>
+          <option value="사랑">사랑</option>
+          <option value="인생">인생</option>
+        </select>
+      </div>
+      <div class="grid" id="quoteGrid"></div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
